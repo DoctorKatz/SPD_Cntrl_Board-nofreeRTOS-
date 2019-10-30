@@ -1,0 +1,1133 @@
+{
+	"settings" : {
+		"maxPlotXPoints":500,
+		"maxConsoleEntries":100
+	},
+	
+	"commands" : [
+		
+		{
+			"name" : "Телеметрия",
+			
+			"alias" : "GetData",
+
+			"id" : 0,
+
+			"in" : [
+		
+						
+				{
+					"name":"температура радиатора",
+					"alias": "thrm_heatsink",
+					"type":"float",
+					"units":"°C",
+					"view":"num",
+					"script":""
+				},
+				{
+					"name":"температура фотодиода",
+					"alias": "thrm_VD",
+					"type":"float",
+					"units":"°C",
+					"view":"num",
+					"script":""
+				},
+					
+				{
+					"name":"напряжение TEC-драйвера",
+					"alias": "TEC_voltage",
+					"type":"float",
+					"units":"В",
+					"view":"num",
+					"script":""
+				},
+			
+				{
+					"name":"смещение фотодиода",
+					"alias": "Bias_VD",
+					"type":"float",
+					"units":"В",
+					"view":"num",
+					"script":""
+				},
+				
+				{
+					"name":"Датчик ВЧ мощности",
+					"alias": "RF_PWR_SNS",
+					"type":"float",
+					"units":"дБм",
+					"view":"num",
+					"script":""
+				},
+				
+				{
+					"name":"уставка температуры",
+					"alias": "thrm_used",
+					"type":"float",
+					"units":"°C",
+					"view":"num",
+					"script":""
+				},
+				
+				{
+					"name":"уставка смещения (расчет)",
+					"alias": "hv_bias_used",
+					"type":"float",
+					"units":"В",
+					"view":"num",
+					"script":""
+				},
+				
+				{
+					"name":"код смещения",
+					"alias": "hv_code_used",
+					"type":"Uint16",
+					"units":"",
+					"view":"hex",
+					"script":""
+				},
+				
+				{
+					"name":"код строба",
+					"alias": "stb_code_used",
+					"type":"Uint16",
+					"units":"",
+					"view":"hex",
+					"script":""
+				},
+
+				{
+					"name":"номер детектора",
+					"alias": "Number_SPD",
+					"type":"Uint8",
+					"units":"",
+					"view":"num",
+					"script":""
+				},
+
+				{
+					"name":"Готовность детектора",
+					"alias": "Ready_SPD",
+					"type":"Uint8",
+					"units":"",
+					"view":"hex",
+					"script":"num"
+				},
+
+				{
+					"name":"Сброс температуры до",
+					"alias": "Dumping_temp_telemetry",
+					"type":"float",
+					"units":"ºС",
+					"view":"num",
+					"default":""
+				},
+
+				{
+					"name":"Аварийный сброс при уходе температуры на",
+					"alias": "Leaving_temp_telemetry",
+					"type":"float",
+					"units":"ºС",
+					"view":"num",
+					"default":""
+				},
+
+				{
+					"name":"Включен таймер сброса температуры",
+					"alias": "EN_TIMER_OVERHEAT_telemetry",
+					"type":"Uint8",
+					"units":"",
+					"view":"hex",
+					"default":""
+				},
+
+				{
+					"name":"TEC1",
+					"alias": "EN_TEC1_FLAG",
+					"type":"Uint8",
+					"units":"",
+					"view":"num",
+					"default":""
+				},
+
+				{
+					"name":"TEC3",
+					"alias": "EN_TEC3_FLAG",
+					"type":"Uint8",
+					"units":"",
+					"view":"num",
+					"default":""
+				}
+				
+				
+				
+			],
+	  
+	  
+			"out" : []
+		},
+		
+			
+		
+		{
+			"name" : "Настройка контроллера",
+			
+			"alias" : "Setup_SPD_controller",
+
+			"id" : 1,
+
+			"in" : [
+				
+				{
+					"name":"Уставка TU1",
+					"alias": "Tset",
+					"type":"float",
+					"units":"°C",
+					"view":"num",
+					"default":""
+				},
+				
+				{
+					"name":"Напряжение смещения фотодиода",
+					"alias": "HV_bias",
+					"type":"float",
+					"units":"В",
+					"view":"num",
+					"default":""
+				},
+				
+				{
+					"name":"код смещения фотодиода",
+					"alias": "HV_code",
+					"type":"UInt16",
+					"units":"",
+					"view":"hex",
+					"default":""
+				},
+				
+				{
+					"name":"код амплитуды строба",
+					"alias": "DDS_stb_code",
+					"type":"UInt16",
+					"units":"",
+					"view":"hex",
+					"default":""
+				}
+
+				
+			],
+	  
+	  
+			"out" : [
+				{
+					"name":"Уставка TU1",
+					"alias": "Tset",
+					"type":"float",
+					"units":"°C",
+					"view":"num",
+					"default":"-45.0"
+				},
+				
+				{
+					"name":"Напряжение смещения фотодиода",
+					"alias": "HV_bias",
+					"type":"float",
+					"units":"V",
+					"view":"num",
+					"default":"40.0"
+				},
+				
+				{
+					"name":"код смещения фотодиода",
+					"alias": "HV_code",
+					"type":"UInt16",
+					"units":"",
+					"view":"hex",
+					"default":"6C8E"
+				},
+				
+				{
+					"name":"код амплитуды строба",
+					"alias": "DDS_stb_code",
+					"type":"UInt16",
+					"units":"",
+					"view":"hex",
+					"default":"1FF"
+				},
+				
+				{
+					"name":"Запрос сброса питания детектора",
+					"alias": "SPD_RESET",
+					"type":"UInt16",
+					"units":"",
+					"view":"num",
+					"default":"0"
+				},
+				
+				{
+					"name":"Запрос сброса контроллера",
+					"alias": "MCU_RESET",
+					"type":"UInt16",
+					"units":"",
+					"view":"num",
+					"default":"0"
+				}
+				
+				
+			]
+	  
+		},
+		
+
+		{
+			"name" : "Настройка параметров модели ПИД-регулятора",
+			
+			"alias" : "DefaultSetPID",
+
+			"id" : 2,
+
+			"in" : [
+				{
+					"name":"Коэффициент P",
+					"alias": "p_coeff",
+					"type":"float",
+					"units":"",
+					"view":"num",
+					"default":""
+				},
+				
+				{
+					"name":"Коэффициент I",
+					"alias": "i_coeff",
+					"type":"float",
+					"units":"",
+					"view":"num",
+					"default":""
+				},
+				
+				{
+					"name":"Коэффициент D",
+					"alias": "d_coeff",
+					"type":"float",
+					"units":"",
+					"view":"num",
+					"default":""
+				},
+				
+				{
+					"name":"Уставка температуры",
+					"alias": "T_set",
+					"type":"float",
+					"units":"°C",
+					"view":"num",
+					"default":""
+				},
+				
+				{
+					"name":"Точность установки температуры",
+					"alias": "T_err",
+					"type":"float",
+					"units":"°C",
+					"view":"num",
+					"default":""
+				},
+
+				{
+					"name":"Задержка включения питания детектора",
+					"alias": "PWR_RCVR_DELAY",
+					"type":"UInt32",
+					"units":"Секунды",
+					"view":"num",
+					"default":""
+				},
+				
+				{
+					"name":"длина фильтра АЦП",
+					"alias": "adc_filtr",
+					"type":"UInt32",
+					"units":"",
+					"view":"num",
+					"default":""
+				}
+			
+			],
+	  
+	  
+			"out" : [
+				{
+					"name":"Ключ разрешения записи настроек",
+					"alias": "SPD_security_key",
+					"type":"UInt16",
+					"units":"",
+					"view":"num",
+					"default":"1234"
+				},
+				
+				{
+					"name":"Коэффициент P",
+					"alias": "p_coeff",
+					"type":"float",
+					"units":"",
+					"view":"num",
+					"default":"0.1"
+				},
+				
+				{
+					"name":"Коэффициент I",
+					"alias": "i_coeff",
+					"type":"float",
+					"units":"",
+					"view":"num",
+					"default":"0.01"
+				},
+				
+				{
+					"name":"Коэффициент D",
+					"alias": "d_coeff",
+					"type":"float",
+					"units":"",
+					"view":"num",
+					"default":"0.0"
+				},
+				
+				{
+					"name":"Задержка включения питания детектора",
+					"alias": "PWR_RCVR_DELAY",
+					"type":"UInt32",
+					"units":"Секунды",
+					"view":"num",
+					"default":"60"
+				},
+				
+				{
+					"name":"длина фильтра АЦП",
+					"alias": "adc_filtr",
+					"type":"UInt32",
+					"units":"",
+					"view":"num",
+					"default":"48"
+				}
+		
+
+			]
+	  
+		},
+		
+		{
+			"name" : "Калибровка измерителя температуры ",
+			
+			"alias" : "CalibThermometr",
+
+			"id" : 3,
+
+			"in" : [
+								
+				{
+					"name":"Коэфф. tg(alfa) графика термодатчика",
+					"alias": "Kr_ret",
+					"type":"float",
+					"units":"",
+					"view":"num",
+					"default":""
+				},
+				
+				{
+					"name":"Коэфф. offset графика термодатчика",
+					"alias": "R0_ofs",
+					"type":"float",
+					"units":"",
+					"view":"num",
+					"default":""
+				},
+				
+				{
+					"name":"коррекция tg_tmpr_corr",
+					"alias": "tg_tmpr_corr",
+					"type":"float",
+					"units":"",
+					"view":"num",
+					"default":""
+				},				
+
+				{
+					"name":"коррекция ofs_tmpr_corr",
+					"alias": "ofs_tmpr_corr",
+					"type":"float",
+					"units":"",
+					"view":"num",
+					"default":""
+				}				
+			
+
+			],
+	  
+	  
+			"out" : [
+				{
+					"name":"Ключ разрешения записи настроек",
+					"alias": "SPD_security_key",
+					"type":"UInt16",
+					"units":"",
+					"view":"num",
+					"default":"0"
+				},			
+				
+				{
+					"name":"Коэфф. tg(alfa) графика термодатчика",
+					"alias": "Kr_ret",
+					"type":"float",
+					"units":"",
+					"view":"num",
+					"default":"1.0"
+				},
+				
+				{
+					"name":"Коэфф. offset графика термодатчика",
+					"alias": "R0_ofs",
+					"type":"float",
+					"units":"",
+					"view":"num",
+					"default":"0.0"
+				},
+				
+				{
+					"name":"коррекция tg_tmpr_corr",
+					"alias": "tg_tmpr_corr",
+					"type":"float",
+					"units":"",
+					"view":"num",
+					"default":"1.0"
+				},				
+
+				{
+					"name":"коррекция ofs_tmpr_corr",
+					"alias": "ofs_tmpr_corr",
+					"type":"float",
+					"units":"",
+					"view":"num",
+					"default":"0.0"
+				}
+			]
+	  
+		},
+		
+		{
+			"name" : "Настройки TEC-драйвера",
+			
+			"alias" : "SetDCDC",
+
+			"id" : 4,
+
+			"in" : [
+				{
+					"name":"погрешность установки напряжения TEC",
+					"alias": "dc_voltage_eps",
+					"type":"float",
+					"units":"В",
+					"view":"num",
+					"default":""
+				},
+				
+				{
+					"name":"максимальное напряжение TEC",
+					"alias": "max_dc_volt",
+					"type":"float",
+					"units":"В",
+					"view":"num",
+					"default":""
+				},
+				
+				{
+					"name":"предельный ток TEC",
+					"alias": "max_dc_curr",
+					"type":"float",
+					"units":"А",
+					"view":"num",
+					"default":""
+				},
+				
+				{
+					"name":"мультипл. коэфф. DC-регулятора",
+					"alias": "tg_calc",
+					"type":"float",
+					"units":"",
+					"view":"num",
+					"default":""
+				},
+				
+				{
+					"name":"аддитив. коэфф. DC-регулятора",
+					"alias": "ofs_calc",
+					"type":"float",
+					"units":"",
+					"view":"num",
+					"default":""
+				}
+				
+			],
+	  
+	  
+			"out" : [
+				{
+					"name":"Ключ разрешения записи настроек",
+					"alias": "SPD_security_key",
+					"type":"UInt16",
+					"units":"",
+					"view":"num",
+					"default":"0"
+				},
+				
+				{
+					"name":"погрешность установки напряжения TEC",
+					"alias": "dc_voltage_eps",
+					"type":"float",
+					"units":"В",
+					"view":"num",
+					"default":"0.1"
+				},
+				
+				{
+					"name":"максимальное напряжение TEC",
+					"alias": "max_dc_volt",
+					"type":"float",
+					"units":"В",
+					"view":"num",
+					"default":"1.0"
+				},
+				
+				{
+					"name":"предельный ток TEC",
+					"alias": "max_dc_curr",
+					"type":"float",
+					"units":"А",
+					"view":"num",
+					"default":"2.0"
+				},
+				
+				{
+					"name":"мультипл. коэфф. DC-регулятора",
+					"alias": "tg_calc",
+					"type":"float",
+					"units":"",
+					"view":"num",
+					"default":"1.0"
+				},
+				
+				{
+					"name":"аддитив. коэфф. DC-регулятора",
+					"alias": "ofs_calc",
+					"type":"float",
+					"units":"",
+					"view":"num",
+					"default":"0.0"
+				}
+			]
+	  
+		},
+		
+		{
+			"name" : "Настройки источника напряжения смещения",
+			
+			"alias" : "SetHV",
+
+			"id" : 5,
+
+			"in" : [
+				{
+					"name":"Предустановленное напряжение смещения фотодиода",
+					"alias": "HV_bias_preset",
+					"type":"float",
+					"units":"В",
+					"view":"num",
+					"default":""
+				},
+				
+				{
+					"name":"Минимальное напряжение смещения",
+					"alias": "HV_bias_min",
+					"type":"float",
+					"units":"В",
+					"view":"num",
+					"default":""
+				},
+				
+				{
+					"name":"Максимальное напряжение смещения",
+					"alias": "HV_bias_max",
+					"type":"float",
+					"units":"В",
+					"view":"num",
+					"default":""
+				},
+				
+				{
+					"name":"мультипликативная константа калибровки",
+					"alias": "HV_slope",
+					"type":"float",
+					"units":"",
+					"view":"num",
+					"default":""
+				},
+				
+				{
+					"name":"аддитивная константа калибровки",
+					"alias": "HV_offset",
+					"type":"float",
+					"units":"",
+					"view":"num",
+					"default":""
+				},
+				
+				{
+					"name":"код предустановленного напряжения",
+					"alias": "preset_code",
+					"type":"UInt16",
+					"units":"",
+					"view":"hex",
+					"default":""
+				}
+				
+			],
+	  
+	  
+			"out" : [
+				
+				{
+					"name":"Ключ разрешения записи настроек",
+					"alias": "SPD_security_key",
+					"type":"UInt16",
+					"units":"",
+					"view":"num",
+					"default":"0"
+				},
+				
+				{
+					"name":"мультипликативная константа калибровки",
+					"alias": "HV_slope",
+					"type":"float",
+					"units":"",
+					"view":"num",
+					"default":"1.0"
+				},
+				
+				{
+					"name":"аддитивная константа калибровки",
+					"alias": "HV_offset",
+					"type":"float",
+					"units":"",
+					"view":"num",
+					"default":"0.0"
+				}
+
+			]
+	  
+		},
+		
+
+		
+		{
+			"name" : "Настройки синтезатора частот (DDS)",
+			
+			"alias" : "SPD_DDS",
+
+			"id" : 6,
+
+			"in" : [
+				{
+					"name":"Подстройка частоты",
+					"alias": "DDS_FTW",
+					"type":"UInt64",
+					"units":"",
+					"view":"hex",
+					"default":""
+				},
+				
+				{
+					"name":"Подстройка фазы",
+					"alias": "DDS_PHS",
+					"type":"UInt16",
+					"units":"",
+					"view":"hex",
+					"default":""
+				}
+			],
+	  
+	  
+			"out" : [
+				{
+					"name":"Ключ разрешения записи настроек",
+					"alias": "SPD_security_key",
+					"type":"UInt16",
+					"units":"",
+					"view":"num",
+					"default":"0"
+				},
+
+				{
+					"name":"Подстройка фазы",
+					"alias": "DDS_PHS",
+					"type":"UInt16",
+					"units":"",
+					"view":"hex",
+					"default":"0"
+				},
+				
+				{
+					"name":"Подстройка частоты",
+					"alias": "DDS_FTW",
+					"type":"UInt64",
+					"units":"",
+					"view":"hex",
+					"default":"0"
+				}
+				
+
+
+			]
+	  
+		},
+		
+		{
+			"name" : "Установка/чтение серийного номера",
+			
+			"alias" : "CMD_SerialNumber",
+
+			"id" : 7,
+
+			"in" : [
+								
+				{
+					"name":"Серийный номер",
+					"alias": "serial_number_SPD",
+					"type":"UInt32",
+					"units":"",
+					"view":"num",
+					"default":""
+				},
+				
+				{
+					"name":"Версия ПО микроконтроллера",
+					"alias": "SPD_soft_version",
+					"type":"Uint32",
+					"units":"",
+					"view":"num",
+					"default":""
+				},
+
+				{
+					"name":"день производства",
+					"alias": "date_day",
+					"type":"Uint16",
+					"units":"день",
+					"view":"num",
+					"default":""
+				},
+				
+				{
+					"name":"месяц производства",
+					"alias": "date_month",
+					"type":"Uint16",
+					"units":"месяц",
+					"view":"num",
+					"default":""
+				},
+				
+				{
+					"name":"год производства",
+					"alias": "date_year",
+					"type":"Uint16",
+					"units":"год",
+					"view":"num",
+					"default":""
+				}
+				
+
+				
+
+			
+			],
+	  
+	  
+			"out" : [
+				{
+					"name":"Ключ разрешения записи настроек",
+					"alias": "SPD_security_key",
+					"type":"UInt16",
+					"units":"",
+					"view":"num",
+					"default":"0"
+				},
+				
+				{
+					"name":"Серийный номер",
+					"alias": "serial_number_SPD",
+					"type":"UInt32",
+					"units":"",
+					"view":"num",
+					"default":"1"
+				},
+				
+				{
+					"name":"Версия ПО микроконтроллера",
+					"alias": "SPD_soft_version",
+					"type":"Uint32",
+					"units":"",
+					"view":"num",
+					"default":"3"
+				},
+
+				{
+					"name":"день производства",
+					"alias": "date_day",
+					"type":"Uint8",
+					"units":"день",
+					"view":"num",
+					"default":"1"
+				},
+				
+				{
+					"name":"месяц производства",
+					"alias": "date_month",
+					"type":"Uint8",
+					"units":"месяц",
+					"view":"num",
+					"default":"1"
+				},
+				
+				{
+					"name":"год производства",
+					"alias": "date_year",
+					"type":"Uint16",
+					"units":"год",
+					"view":"num",
+					"default":"2018"
+				}
+				
+			]
+	  
+		},
+		
+		
+		{
+			"name" : "Установка наименования",
+			
+			"alias" : "SPD_name_write",
+
+			"id" : 8,
+
+			"in" : [
+				{
+					"name":"Строка",
+					"alias": "SPD_name_txt",
+					"type":"uint64",
+					"units":"",
+					"view":"hex",
+					"default":""
+				}
+			],
+	  
+	  
+			"out" : [
+						
+				{
+					"name":"Строка текстового дескриптора",
+					"alias": "SPD_name_txt",
+					"type":"uint16",
+					"units":"",
+					"view":"hex",
+					"default":"0"
+				}
+
+			]
+	  
+		},
+		
+		{
+			"name" : "Чтение наименования",
+			
+			"alias" : "SPD_name_read",
+
+			"id" : 9,
+
+			"in" : [
+				{
+					"name":"Строка",
+					"alias": "SPD_name_txt",
+					"type":"uint16",
+					"units":"",
+					"view":"str",
+					"default":""
+				}
+			],
+	  
+	  
+			"out" : []
+	  
+		},
+		
+		{
+			"name" : "Чтение статуса детектора",
+			
+			"alias" : "SPD_status",
+
+			"id" : 10,
+
+			"in" : [
+				{
+					"name":"флаги",
+					"alias": "SPD_status",
+					"type":"UInt32",
+					"units":"",
+					"view":"bin",
+					"default":""
+				}
+			],
+	  
+	  
+			"out" : []
+	  
+		},
+		{
+			"name" : "номер ДОФ (запись)",
+			
+			"alias" : "Number_SPD",
+
+			"id" : 11,
+
+			"in" : [
+				{
+					"name":"Номер детектор",
+					"alias": "SPD_num",
+					"type":"Uint8",
+					"units":"",
+					"view":"char",
+					"default":"0"
+				}
+			],
+	  
+	  
+			"out" : [
+						
+				{
+					"name":"Строка текстового дескриптора",
+					"alias": "SPD_num",
+					"type":"Uint8",
+					"units":"",
+					"view":"char",
+					"default":"0"
+				}
+
+			]
+	  
+		},
+
+		{
+			"name" : "Аварийные режимы",
+			
+			"alias" : "Ahtung",
+
+			"id" : 12,
+
+			"in" : [
+				{
+					"name":"Сброс температуры до",
+					"alias": "Dumping_temp",
+					"type":"float",
+					"units":"ºС",
+					"view":"num",
+					"default":""
+				},
+
+				{
+					"name":"Аварийный сброс при уходе температуры на",
+					"alias": "Leaving_temp",
+					"type":"float",
+					"units":"ºС",
+					"view":"num",
+					"default":""
+				},
+
+				{
+					"name":"Включен таймер сброса температуры",
+					"alias": "EN_TIMER_OVERHEAT",
+					"type":"Uint8",
+					"units":"",
+					"view":"num",
+					"default":""
+				},
+
+				{
+					"name":"TEC1",
+					"alias": "EN_TEC1_FLAG",
+					"type":"Uint8",
+					"units":"",
+					"view":"num",
+					"default":""
+				},
+
+				{
+					"name":"TEC3",
+					"alias": "EN_TEC3_FLAG",
+					"type":"Uint8",
+					"units":"",
+					"view":"num",
+					"default":""
+				}
+				
+			],
+	  
+	  
+			"out" : [
+						
+				{
+					"name":"Сброс температуры до",
+					"alias": "Dumping_temp",
+					"type":"float",
+					"units":"ºС",
+					"view":"num",
+					"default":""
+				},
+
+				{
+					"name":"Аварийный сброс при уходе температуры на",
+					"alias": "Leaving_temp",
+					"type":"float",
+					"units":"ºС",
+					"view":"num",
+					"default":""
+				},
+
+				{
+					"name":"Включен таймер сброса температуры",
+					"alias": "EN_TIMER_OVERHEAT",
+					"type":"Uint8",
+					"units":"",
+					"view":"num",
+					"default":""
+				},
+
+				{
+					"name":"TEC1",
+					"alias": "EN_TEC1_FLAG",
+					"type":"Uint8",
+					"units":"",
+					"view":"num",
+					"default":""
+				},
+
+				{
+					"name":"TEC3",
+					"alias": "EN_TEC3_FLAG",
+					"type":"Uint8",
+					"units":"",
+					"view":"num",
+					"default":""
+				}
+				
+			]
+	  
+		}
+		
+	  
+	]
+}

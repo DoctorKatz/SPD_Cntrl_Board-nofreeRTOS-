@@ -1,0 +1,126 @@
+<!DOCTYPE CrossStudio_Project_File>
+<solution Name="Controller_V2" target="8" version="2">
+  <project Name="Controller_V2">
+    <configuration
+      Name="Common"
+      arm_architecture="v7EM"
+      arm_core_type="Cortex-M4"
+      arm_endian="Little"
+      arm_fpu_type="FPv4-SP-D16"
+      arm_simulator_memory_simulation_parameter="RX 08000000,00080000,FFFFFFFF;RWX 20000000,00020000,CDCDCDCD"
+      arm_target_device_name="STM32F446VE"
+      arm_target_interface_type="SWD"
+      debug_start_from_entry_point_symbol="No"
+      debug_target_connection="J-Link"
+      linker_section_placements_segments="FLASH1 RX 0x08000000 0x00080000;RAM1 RWX 0x20000000 0x00020000"
+      project_directory=""
+      project_type="Executable" />
+    <configuration
+      Name="Internal"
+      arm_linker_variant="SEGGER"
+      build_intermediate_directory="Output/$(ProjectName) $(Configuration)/Obj"
+      build_output_directory="Output/$(Configuration)/Exe"
+      build_output_file_name="$(OutDir)/$(ProjectName)$(EXE)"
+      link_linker_script_file="$(StudioDir)/samples/SEGGER_Flash.icf" />
+    <configuration
+      Name="External Keil ARMCC"
+      project_type="Externally Built Executable" />
+    <folder Name="Internal Files">
+      <configuration Name="Common" build_exclude_from_build="Yes" />
+      <configuration Name="Internal" build_exclude_from_build="No" />
+      <file file_name="$(StudioDir)/samples/Cortex_M_Startup.s" />
+      <file file_name="$(StudioDir)/samples/SEGGER_THUMB_Startup.s" />
+    </folder>
+    <configuration
+      Name="Controller_V2 External"
+      armcc_cl_cpu="Cortex-M4"
+      armcc_cl_enable_debug_info="Yes"
+      armcc_cl_optimization_level="None"
+      asm_additional_options="--pd;&quot;__MICROLIB SETA 1&quot;"
+      asm_additional_options_backup="--cpu;Cortex-M4;--pd;&quot;__MICROLIB SETA 1&quot;"
+      build_intermediate_directory="Controller_V2"
+      build_output_directory="Controller_V2"
+      build_output_file_name="Controller_V2/Controller_V2.axf"
+      c_additional_options="-D__MICROLIB;--C99;--split_sections"
+      c_additional_options_backup="--cpu;Cortex-M4;-D__MICROLIB;--C99;-O0;--split_sections;-g"
+      link_additional_options_backup="--cpu;Cortex-M4;--ro_base=0x08000000;--rw_base=0x20000000;--first=__Vectors;--diag_suppress=L6329;--library_type=microlib"
+      linker_additional_options="--ro_base=0x08000000;--rw_base=0x20000000;--first=__Vectors;--diag_suppress=L6329;--library_type=microlib" />
+    <configuration
+      CMSIS_CORE="Yes"
+      Name="Controller_V2"
+      c_preprocessor_definitions="USE_HAL_DRIVER;STM32F446xx"
+      c_user_include_directories="../Inc;../Drivers/STM32F4xx_HAL_Driver/Inc;../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy;../Middlewares/ST/STM32_USB_Device_Library/Core/Inc;../Middlewares/ST/STM32_USB_Device_Library/Class/CustomHID/Inc;../Drivers/CMSIS/Device/ST/STM32F4xx/Include;../Drivers/CMSIS/Include" />
+    <folder Name="Middlewares/USB_Device_Library">
+      <file file_name="../Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_core.c" />
+      <file file_name="../Middlewares/ST/STM32_USB_Device_Library/Class/CustomHID/Src/usbd_customhid.c" />
+      <file file_name="../Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.c" />
+      <file file_name="../Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ioreq.c" />
+    </folder>
+    <folder Name="Drivers/CMSIS">
+      <file file_name="../Src/system_stm32f4xx.c" />
+      <file file_name="../Inc/stm32f4xx_wwdg.h" />
+    </folder>
+    <folder Name="Drivers/STM32F4xx_HAL_Driver">
+      <file file_name="../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr.c" />
+      <file file_name="../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c" />
+      <file file_name="../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma_ex.c" />
+      <file file_name="../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c" />
+      <file file_name="../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2c_ex.c" />
+      <file file_name="../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c" />
+      <file file_name="../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd_ex.c" />
+      <file file_name="../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash.c" />
+      <file file_name="../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c" />
+      <file file_name="../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc_ex.c" />
+      <file file_name="../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.c" />
+      <file file_name="../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c" />
+      <file file_name="../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr_ex.c" />
+      <file file_name="../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c" />
+      <file file_name="../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c" />
+      <file file_name="../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc_ex.c" />
+      <file file_name="../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c" />
+      <file file_name="../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd.c" />
+      <file file_name="../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c" />
+      <file file_name="../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ramfunc.c" />
+      <file file_name="../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c" />
+      <file file_name="../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2c.c" />
+      <file file_name="../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_crc.c" />
+      <file file_name="../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_iwdg.c" />
+    </folder>
+    <folder Name="Application/User">
+      <file file_name="../Src/usbd_conf.c" />
+      <file file_name="../Src/stm32f4xx_it.c" />
+      <file file_name="../Src/usbd_custom_hid_if.c" />
+      <file file_name="../Src/usbd_desc.c" />
+      <file file_name="../Src/main.c" />
+      <file file_name="../Src/stm32f4xx_hal_msp.c" />
+      <file file_name="../Src/usb_device.c" />
+      <file file_name="../Src/ADC_AD7124.c" />
+      <file file_name="../Src/fifo_buffer.c" />
+      <file file_name="../Inc/commands.h" />
+      <file file_name="../Src/DCDC_TEC.c" />
+      <file file_name="../Src/SPD_controller.c" />
+      <file file_name="../Src/EXT_EEPROM.c" />
+      <file file_name="../Src/HV_DAC.c" />
+      <file file_name="../Src/DDS.c" />
+    </folder>
+    <folder Name="Application/MDK-ARM">
+      <file file_name="startup_stm32f446xx.s">
+        <configuration Name="Internal" build_exclude_from_build="Yes" />
+      </file>
+    </folder>
+    <folder Name="::CMSIS" />
+  </project>
+  <configuration
+    Name="External Keil ARMCC"
+    build_generic_options_file_name="$(StudioDir)/targets/ARMCC_build_options.xml"
+    hidden="Yes"
+    macros="KEIL_TOOLKIT_DIR=H:/Program Files(x86)/CoreKeil/ARM" />
+  <configuration Name="Internal" hidden="Yes" />
+  <configuration
+    Name="Controller_V2 External"
+    inherited_configurations="External Keil ARMCC;Controller_V2" />
+  <configuration
+    Name="Controller_V2 Internal"
+    inherited_configurations="Internal;Controller_V2" />
+  <configuration Name="Controller_V2" hidden="Yes" />
+</solution>
